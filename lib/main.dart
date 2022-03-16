@@ -6,13 +6,13 @@ void main() => runApp(XylophoneApp());
 //    int result = await audioPlayer.play(localPath, isLocal: true);
 
 class XylophoneApp extends StatelessWidget {
-  void playsound(int soundnumber) // method to play sounds
+  void PlaySound(int SoundNumber) // method to play sounds
   {
     final player= AudioCache();
-    player.play('note$soundnumber.wav');
+    player.play('note$SoundNumber.wav');
   }
   //const XylophoneApp({Key? key}) : super(key: key);
-Expanded buildKey( Color blockColor, int soundNumber)
+Expanded buildKey( Color blockColor, int soundNumber) // method to build key that takes colors and sound file #
 {
   return Expanded(
     child: InkWell(
@@ -22,7 +22,7 @@ Expanded buildKey( Color blockColor, int soundNumber)
       ),
       onTap: ()
       {
-        playsound(soundNumber);
+        PlaySound(soundNumber);
       },
     ),
   );
@@ -34,7 +34,7 @@ Expanded buildKey( Color blockColor, int soundNumber)
         backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.stretch, // take the max width of the screen inside column
             children: [
               buildKey(Colors.red,1),
               buildKey(Colors.orange,2),
